@@ -1,0 +1,65 @@
+$regular: 400;
+$bold: 700;
+$light: 200;
+
+@font-face {
+    font-family: 'Inter';
+    src: url('font/Inter/static/Inter-Regular.ttf') format('truetype');
+    font-weight: $regular;
+}
+
+@font-face {
+    font-family: 'InterBold';
+    src: url('font/Inter/static/Inter-Bold.ttf') format('truetype');
+    font-weight: $bold;
+}
+
+@font-face {
+    font-family: 'InterLight';
+    src: url('font/Inter/static/Inter-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'InterVariable';
+    src: url('font/Inter/variable/Inter.ttf') format('truetype-variations');
+    font-style: normal;
+    font-weight: 100 900;
+    // font-stretch: 10% 200%;
+    // font-optical-sizing: 0 100;
+}
+
+@mixin font($weight, $family: false) {
+    @supports not (font-variation-settings: 'wght' 1) {
+        @if $weight <= $light {
+            @if $family {
+                font-family: 'InterLight', sans-serif;
+            }
+
+            font-weight: $light;
+        } @else if $weight >= $bold {
+            @if $family {
+                font-family: 'InterBold', sans-serif;
+            }
+
+            font-weight: $bold;
+        } @else {
+            @if $family {
+                font-family: 'Inter', sans-serif;
+            }
+
+            font-weight: $regular;
+        }
+    }
+
+    @supports (font-variation-settings: 'wght' 1) {
+        @if $family {
+            font-family: 'InterVariable', sans-serif;
+        }
+
+        font-weight: $weight;
+    }
+}
+
+$lineHeightMD: 1.5;
+$fontSizeSM: 1.6rem;

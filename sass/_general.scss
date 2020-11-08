@@ -1,0 +1,40 @@
+:root {
+    font-size: 62.5%; // reset to 10px
+}
+
+html,
+body,
+main,
+header,
+footer,
+section,
+article,
+aside,
+div,
+form,
+small,
+svg,
+::before,
+::after {
+    box-sizing: border-box;
+    display: block;
+}
+
+body {
+    @include font($regular, true);
+    font-size: $fontSizeSM;
+    line-height: $lineHeightMD;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+a,
+button {
+    outline: none;
+}

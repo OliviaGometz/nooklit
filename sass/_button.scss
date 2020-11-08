@@ -1,0 +1,79 @@
+.button,
+.button-light {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin: 5px;
+    padding: 8px 16px;
+    text-align: center;
+    transition: all .3s;
+
+    &::before {
+        content: '';
+        box-sizing: content-box;
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        opacity: .3;
+        transition: all .3s;
+    }
+
+    &:hover,
+    &:focus {
+        font-weight: 600;
+
+        &::before {
+            padding: 5px;
+        }
+    }
+
+    &:active {
+        &::before {
+            padding: 15px;
+            opacity: 0;
+            transition: all .1s;
+        }
+    }
+
+    @each $name, $color in $colors {
+        &.#{$name} {
+            &::before {
+                background-color: map-get($color, main);
+            }
+        }
+    }
+}
+
+.button {
+    &:hover,
+    &:focus {
+        color: $white00;
+    }
+
+    @each $name, $color in $colors {
+        &.#{$name} {
+            background-color: map-get($color, main);
+            color: map-get($color, ultraLight);
+        }
+    }
+}
+
+.button-light {
+    background-color: $white00;
+
+    @each $name, $color in $colors {
+        &.#{$name} {
+            border: solid $line map-get($color, main);
+            color: map-get($color, main);
+        }
+    }
+}
+
+.container-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

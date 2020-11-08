@@ -1,0 +1,28 @@
+// Colors
+
+$primary: #105D87;
+$secondary: #DD314E;
+
+$primaryUltraLight: #deeff8;
+$secondaryUltraLight: #ffebef;
+
+$colors: (
+    primary: (
+        main: $primary,
+        ultraLight: $primaryUltraLight,
+    ),
+    secondary: (
+        main: $secondary,
+        ultraLight: $secondaryUltraLight,
+    ),
+);
+
+// Greys
+
+$white00: #ffffff;
+$white20: #eeeeee;
+
+$grey40: #666666;
+$grey50: #4b4b4b;
+
+$black00: #000000;
